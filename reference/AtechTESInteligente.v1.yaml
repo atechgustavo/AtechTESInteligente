@@ -1,0 +1,110 @@
+openapi: 3.0.0
+info:
+  title: AtechTESInteligente
+  version: '1.0'
+  contact:
+    name: Gustavo
+  description: 'Esta API possibilita obter do Protheus o código de TES (Tipo de Entrada e Saída) adequado à operação de entrada ou saída que se deseja realizar, por exemplo TES de venda.  '
+servers:
+  - url: 'http://SRV-ERP-DEV:8283/AtechTESInteligente/v1'
+    description: DEV
+  - url: 'http://SRV-ERP-HML:8183/AtechTESInteligente/v1'
+    description: HML
+  - url: 'http://SRV-ERP:8083/AtechTESInteligente/v1'
+    description: PROD
+tags:
+  - name: TES inteligente
+paths:
+  /:
+    get:
+      summary: Consulta de TES inteligente
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  codigoTES:
+                    type: string
+                    description: Código do TES inteligente obtido
+              examples:
+                Exemplo:
+                  value:
+                    codigoTES: '748'
+      operationId: get-AtechTESInteligente-v1
+      description: 'Este método possibilita obter do Protheus o código de TES (Tipo de Entrada e Saída) adequado à operação de entrada ou saída que se deseja realizar, por exemplo TES de venda.  '
+      parameters:
+        - schema:
+            type: integer
+            enum:
+              - 1
+              - 2
+            example: 2
+          in: query
+          name: nEntSai
+          description: '1=Entrada, 2=Saída'
+          required: true
+        - schema:
+            type: string
+            enum:
+              - '02'
+              - '03'
+            example: '03'
+          in: query
+          name: cTpOper
+          description: Tipo de operação
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cClieFor
+          description: Código do cliente ou fornecedor
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cLoja
+          description: Loja do cliente ou fornecedor
+          required: true
+        - schema:
+            type: string
+            default: C
+            enum:
+              - C
+              - F
+            example: C
+          in: query
+          name: cTipoCF
+          description: 'C=Cliente, F=Fornecedor'
+        - schema:
+            type: string
+            example: '005599'
+          in: query
+          name: cProduto
+          description: Código do produto
+          required: true
+        - schema:
+            type: string
+            default: ''
+          in: query
+          name: cCampo
+          description: Alias utilizado na função
+        - schema:
+            type: string
+            enum:
+              - F
+              - L
+              - R
+              - S
+              - X
+            default: C
+          in: query
+          name: cTipoCli
+          description: 'Tipo do cliente: F=Cons. final, L=Prod. rural, R=Revendedor, S=Solidário, X=Exportação/importação'
+      tags:
+        - TES inteligente
+    parameters: []
+components:
+  schemas: {}
