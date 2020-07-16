@@ -6,11 +6,11 @@ info:
     name: Gustavo
   description: 'Esta API possibilita obter do Protheus o código de TES (Tipo de Entrada e Saída) adequado à operação de entrada ou saída que se deseja realizar, por exemplo TES de venda.  '
 servers:
-  - url: 'http://SRV-ERP-DEV:8283/AtechTESInteligente/v1'
+  - url: 'http://SRV-ERP-DEV:8283/rest/AtechTESInteligente/v1'
     description: DEV
-  - url: 'http://SRV-ERP-HML:8183/AtechTESInteligente/v1'
+  - url: 'http://SRV-ERP-HML:8183/rest/AtechTESInteligente/v1'
     description: HML
-  - url: 'http://SRV-ERP:8083/AtechTESInteligente/v1'
+  - url: 'http://SRV-ERP:8083/rest/AtechTESInteligente/v1'
     description: PROD
 tags:
   - name: TES inteligente
