@@ -37,6 +37,20 @@ paths:
       description: 'Este método possibilita obter do Protheus o código de TES (Tipo de Entrada e Saída) adequado à operação de entrada ou saída que se deseja realizar, por exemplo TES de venda.  '
       parameters:
         - schema:
+            type: string
+            example: '01'
+          in: query
+          name: cNumEmpresa
+          description: Número da empresa (origem)
+          required: true
+        - schema:
+            type: string
+            example: '01'
+          in: query
+          name: cNumFilial
+          description: Número da filial (origem)
+          required: true
+        - schema:
             type: integer
             enum:
               - 1
